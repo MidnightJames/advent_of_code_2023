@@ -9,6 +9,47 @@ import java.util.Scanner;
 
 public class Seeds_Part_1 {
 	static final int INVALID_FILENAME = -1;
+	static final int SEED_TO_SOIL = 1;
+	static final int SOIL_TO_FERTILIZER = 2;
+	static final int FERTILIZER_TO_WATER = 3;
+	static final int WATER_TO_LIGHT = 4;
+	static final int LIGHT_TO_TEMP = 5;
+	static final int TEMP_TO_HUMIDITY = 6;
+	static final int HUMIDITY_TO_LOCATION = 7;
+	
+	public static int get_section_number(String line)
+	{
+		if (line.contains("seed-to-soil"))
+		{
+			return SEED_TO_SOIL;
+		}
+		if (line.contains("soil-to-fertilizer"))
+		{
+			return SOIL_TO_FERTILIZER;
+		}
+		if (line.contains("fertilizer-to-water"))
+		{
+			return FERTILIZER_TO_WATER;
+		}
+		if (line.contains("water-to-light"))
+		{
+			return WATER_TO_LIGHT;
+		}
+		if (line.contains("light-to-temperature"))
+		{
+			return LIGHT_TO_TEMP;
+		}
+		if (line.contains("temperature-to-humidity"))
+		{
+			return TEMP_TO_HUMIDITY;
+		}
+		if (line.contains("humidity-to-location"))
+		{
+			return HUMIDITY_TO_LOCATION;
+		}
+		
+		return -1;
+	}
 	
 	public static String get_filename(Scanner keyboardScanner)
 	{
@@ -44,6 +85,7 @@ public class Seeds_Part_1 {
 		String line = null;
 		ArrayList<Integer> seeds = new ArrayList<Integer>();
 		File file = new File(filename);
+		int section_number = -1;
 		
 		try 
 		{
@@ -57,7 +99,46 @@ public class Seeds_Part_1 {
 			{
 				line = fileScanner.nextLine();
 				System.out.println("Line: " + line);
-				get_seeds(line, seeds);
+				if (get_section_number(line) != -1)
+				{
+					section_number = get_section_number(line);
+					continue;
+				}
+				System.out.println("Section Number: " + section_number);
+				if (section_number == SEED_TO_SOIL)
+				{
+					
+				}
+				
+				if (section_number == SOIL_TO_FERTILIZER)
+				{
+					
+				}
+				
+				if (section_number == FERTILIZER_TO_WATER)
+				{
+					
+				}
+				
+				if (section_number == WATER_TO_LIGHT)
+				{
+					
+				}
+				
+				if (section_number == LIGHT_TO_TEMP)
+				{
+					
+				}
+				
+				if (section_number == TEMP_TO_HUMIDITY)
+				{
+					
+				}
+				
+				if (section_number == HUMIDITY_TO_LOCATION)
+				{
+					
+				}
 			}
 			fileScanner.close();
 		}
