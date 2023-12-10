@@ -36,6 +36,20 @@ public class Edges
 		return false;
 	}
 	
+	public void removeEdge(Edge edge)
+	{
+		for (Edge testEdge : edges)
+		{
+			if (testEdge.equals(edge))
+			{
+				edges.remove(edges.indexOf(edge));
+				return;
+			}
+		}
+		
+		System.out.println("Edge " + edge + " not found.");
+	}
+	
 	public ArrayList<Edge> getEdges()
 	{
 		return edges;
