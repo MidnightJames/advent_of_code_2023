@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Dish_Part_2
+public class Dish_Part_1
 {
 	static final int INVALID_FILENAME = -1;
 	static final int FILE_NOT_FOUND = -2;
@@ -55,26 +55,14 @@ public class Dish_Part_2
 			System.exit(FILE_NOT_FOUND);
 		}
 		
-//		int i = 0;
-//		while (!dish.dishSameAsLast())
-//		{
-//			System.out.print(i);
-//			dish.cycleDish();
-//			++i;
-//		}	
+		System.out.println("Initial");
+		dish.printDish();
+		System.out.println();
 		
-		for (int i = 0; i < 1000000000; ++i)
-		{
-			dish.cycleDish();
-			System.out.println("Load = " + dish.getLoad() + " at " + i);
-//			if (i % 10000000 == 0)
-//			{
-//				System.out.println(i);
-//			}
-		}
+		dish.tipNorth();
 		
 		int northLoad = dish.getLoad();
-		System.out.println("Load = " + northLoad);
+		System.out.println("North Load = " + northLoad);
 		
 		long endTime = System.nanoTime();
 		long duration = (endTime - startTime) / 1000000;
